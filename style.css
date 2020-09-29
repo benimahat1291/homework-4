@@ -1,0 +1,32 @@
+
+body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+
+.container {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
+    
+}
+
+.hide {
+    display: none;
+
+}
+.questionbox{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
