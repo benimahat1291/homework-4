@@ -17,24 +17,24 @@ start.addEventListener("click", Qstart);
 let questions = [
     {
         question: "1+1=?",
-        choiceA:"correct",
-        choiceB:"wrong",
-        choiceC:"wrong",
-        correct:"A",
+        choiceA:"2",
+        choiceB:"1",
+        choiceC:"3",
+        correct:"2",
         
     }, {
         question: "1+2=?",
-        choiceA:"wrong",
-        choiceB:"correct",
-        choiceC:"wrong",
-        correct:"B",
+        choiceA:"1",
+        choiceB:"3",
+        choiceC:"5",
+        correct:"3",
         
     }, {
         question: "1+3=?",
-        choiceA:"wrong",
-        choiceB:"wrong",
-        choiceC:"correct",
-        correct:"C",
+        choiceA:"3",
+        choiceB:"5",
+        choiceC:"4",
+        correct:"4",
         
     }
 ];
@@ -63,10 +63,12 @@ function Qstart(){
     Qrender();
     quiz.style.display= "block";
     Qcounter();
+    timer = setInterval(Qcounter,1000);
+
 };
 
 function checkAnswer(answer){
-    if(answer == question[questionIndex].correct){
+    if(answer == questions[questionIndex].correct){
         score++;
     }else{
         timer - 3;
