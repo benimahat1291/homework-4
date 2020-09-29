@@ -20,32 +20,31 @@ let questions = [
         choiceA:"2",
         choiceB:"1",
         choiceC:"3",
-        correct:"2",
+        correct:"A",
         
     }, {
         question: "1+2=?",
         choiceA:"1",
         choiceB:"3",
         choiceC:"5",
-        correct:"3",
+        correct:"B",
         
     }, {
         question: "1+3=?",
         choiceA:"3",
         choiceB:"5",
         choiceC:"4",
-        correct:"4",
+        correct:"C",
         
     }
 ];
 
 // create some vars
-const lastQ = questions.length-1;
+const lastQ = questions.length;
 let questionIndex = 0;
-const startTime = 10;
-let timer;
+let clock;
 let score = 0;
-let count = 0;
+let count = 10;
 
 // Question render function
 function Qrender(){
@@ -58,33 +57,41 @@ function Qrender(){
 };
 
 function Qstart(){
+    console.log(lastQ)
     console.log("game started");
-    start.style.display = "none";
+    start.style.display = "none";    
+    Qcounter();
     Qrender();
     quiz.style.display= "block";
-    Qcounter();
-    timer = setInterval(Qcounter,1000);
+    clock = setInterval(Qcounter,1000);
 
 };
 
 function checkAnswer(answer){
-    if(answer == questions[questionIndex].correct){
-        score++;
-    }else{
-        timer - 3;
+    if (count > 0 ){
+        if(answer == questions[questionIndex].correct){
+            score++;
+            console.log(score);
+        }else{
+            count = count + 3;
+        };
+
+
+        if(questionIndex <= lastQ){
+            console.log(questionIndex);
+            questionIndex++;
+            Qrender();
+        }else{
+            quiz.style.display = "block";
+            start.style.display = "none";
+        };
     }
 
-    count = 0;
-    if(questionIndex < lastQ){
-        questionIndex++;
-        Qrender();
-    }else{
-    }
-}
+};
 
 function Qcounter(){
-    if(count <= startTime){
+    if(count >= 0){
         counter.innerHTML = count;
-        count++;
-    }
-}
+        count = count-1;
+    };
+};
