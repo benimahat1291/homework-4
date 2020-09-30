@@ -30,3 +30,9 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.scoresheet{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}

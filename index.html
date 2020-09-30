@@ -11,6 +11,7 @@
 <body>
     <div class = "container">
         <button id="start" >Start Quiz!</button>
+        <div id="score" class = "scoresheet" style="display: none"></div>
         <div id="quiz" style="display: none">
             <div id="question" class="questionbox"></div>
             <div id="choices">
@@ -18,14 +19,9 @@
                 <button class = "choice" id="B" onclick = "checkAnswer('B')"></button>
                 <button class = "choice" id="C" onclick = "checkAnswer('C')"></button>
             </div>
-            <div id="timer">
-                <div id="counter"></div>
+                <timer id="counter"></div>
             </div>
         </div>
-
-      
-        <div id="score" style="display: none"></div>
-
        
     </div>
 
