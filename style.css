@@ -1,4 +1,10 @@
 
+
+
+
+
+
+
 body {
     display: flex;
     width: 100vw;
@@ -7,9 +13,10 @@ body {
     align-items: center;
   }
 
-.container {
 
-  display: flex;
+.container {
+  display: grid;
+  text-align: center;
   justify-content: center;
   align-items: center;
   width: 800px;
@@ -21,18 +28,14 @@ body {
     
 }
 
-.hide {
-    display: none;
-
-}
 .questionbox{
-  display:flex;
-  justify-content: center;
-  align-items: center;
+
 }
 
 .scoresheet{
-  display:flex;
-  justify-content: center;
-  align-items: center;
+  padding-top: 10px;
+}
+
+.timer{
+  padding-top: 10px;
 }

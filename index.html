@@ -9,20 +9,30 @@
 </head>
 
 <body>
+    
     <div class = "container">
+        <h1>Coding QUIZ!</h1>
+        
         <button id="start" >Start Quiz!</button>
+        <button id="restart" style = "display: none" >Restart</button>
+    
         <div id="score" class = "scoresheet" style="display: none"></div>
+        <div id="nameform" style = "display: none">
+            <button>submit results</button>
+            <input></input>
+        </div>
+
         <div id="quiz" style="display: none">
             <div id="question" class="questionbox"></div>
             <div id="choices">
                 <button class = "choice" id="A" onclick = "checkAnswer('A')"></button>
                 <button class = "choice" id="B" onclick = "checkAnswer('B')"></button>
                 <button class = "choice" id="C" onclick = "checkAnswer('C')"></button>
+            <div class = "timer">
+                <timer id="counter">Timer: 00<timer>
             </div>
-                <timer id="counter"></div>
-            </div>
+
         </div>
-       
     </div>
 
 
