@@ -3,13 +3,17 @@
 
 const quiz = document.getElementById("quiz");
 const start = document.getElementById("start");
+const restart = document.getElementById("restart");
+
 const question = document.getElementById("question");
 const counter = document.getElementById("counter");
 const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
 const scoreSheet = document.getElementById("score");
-let nameform = document.getElementById("nameform");
+var nameform = document.getElementById("nameform");
+var submitbtn = document.getElementById("submit");
+
 
 
 
@@ -75,9 +79,11 @@ function Qstart(){
     // showScore();
     Qrender(); //move though the questions array to get new questions
     quiz.style.display= "block"; // makes the quiz section appear
+    submit();
 
 };
 function Qrestart(){
+    nameform.style.display = "none";
     scoreSheet.style.display = "none";
     score = 0;
     count = 10;
@@ -130,16 +136,28 @@ function Qcounter(){
 };
 
 function endOfGame(){
+    console.log("game has ended");
+    nameform.style.display = "block";
+    quiz.style.display= "none";
+    restart.style.display="block";
+    scoreSheet.innerText = "Score :" + score;
+    scoreSheet.style.display = "block";
 
-   console.log("game has ended");
-   nameform.style.display = "block";
-   quiz.style.display= "none";
-   restart.style.display="block";
-   scoreSheet.innerText = "Score :" + score;
-   scoreSheet.style.display = "block";
+
 
 }
 
 function submit(){
+    var namebox = document.createElement("input")
+    namebox.setAttribute("placeholder","enter name");
+    nameform.appendChild(namebox);
+    namebox.addEventListener("input", function(e){
+        currenttxt = e.target.value
+    });
+    submitbtn.addEventListener("click", function(){
+        localStorage.setItem("name",currenttxt);
+        name = localStorage.getItem("name");
+        console.log(name);
+    });
  
 }
