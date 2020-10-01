@@ -11,6 +11,7 @@ const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
 const scoreSheet = document.getElementById("score");
+const home = document.getElementById("home");
 var nameform = document.getElementById("nameform");
 var submitbtn = document.getElementById("submit");
 
@@ -25,6 +26,7 @@ restart.addEventListener("click", Qrestart);
 //create our questions as ojbects in an array
 let questions = [
     {
+        number : "Question: 1",
         question: "Q1:  1+1=?",
         choiceA:"2",
         choiceB:"1",
@@ -32,6 +34,7 @@ let questions = [
         correct:"A",
         
     }, {
+        number : "Question: 2",
         question: "Q2:  1+2=?",
         choiceA:"1",
         choiceB:"3",
@@ -39,6 +42,7 @@ let questions = [
         correct:"B",
         
     }, {
+        number : "Question: 3",
         question: "Q3:  1+3=?",
         choiceA:"3",
         choiceB:"5",
@@ -60,6 +64,7 @@ function Qrender(){
     let thisQuestion = questions[questionIndex];//assign each question object to thisQuestion
     //Mark up obj information in their respective DOM element
     console.log(thisQuestion);
+    home.innerText = thisQuestion.number;
     question.innerHTML = "<p>" + thisQuestion.question + "</p>"; 
     choiceA.innerHTML = thisQuestion.choiceA;
     choiceB.innerHTML = thisQuestion.choiceB;
@@ -71,6 +76,8 @@ function Qrender(){
 
 
 function Qstart(){
+    
+    home.innerHTML = "Coding QUIZ!";
     count = 10;
     clock = setInterval(Qcounter,1000); // repeate Qcounter ever 1sec
     scoreSheet.style.display = "none";
@@ -96,12 +103,16 @@ function Qrestart(){
 
 };
 //
-function checkAnswer(clicked){
+function checkAnswer(ABC){
 
     
-    if(clicked === questions[questionIndex].correct){ //If userinput is the same as the correct attributte in obj run...
+
+    if(ABC === questions[questionIndex].correct){ //If userinput is the same as the correct attributte in obj run...
         score++; // add score by 1
         console.log("score:" + score);
+        localStorage.setItem("score",score);
+        
+        
     }else{
         count = count - 3; // if not the correct attribute then add count by 3
     };
@@ -136,6 +147,7 @@ function Qcounter(){
 };
 
 function endOfGame(){
+    home.innerHTML = "Coding QUIZ!";
     console.log("game has ended");
     nameform.style.display = "block";
     quiz.style.display= "none";
@@ -148,7 +160,7 @@ function endOfGame(){
 }
 
 function submit(){
-    var namebox = document.createElement("input")
+    var namebox = document.createElement("input");
     namebox.setAttribute("placeholder","enter name");
     nameform.appendChild(namebox);
     namebox.addEventListener("input", function(e){
@@ -157,7 +169,14 @@ function submit(){
     submitbtn.addEventListener("click", function(){
         localStorage.setItem("name",currenttxt);
         name = localStorage.getItem("name");
-        console.log(name);
+        score = localStorage.getItem("score")
+        console.log(name, score);
+        var records = document.createElement("p");
+        records.setAttribute("class", "text");
+        nameform.appendChild(records);
+        records.innerHTML = "Name: " +name + " :  Score: " + score; 
     });
+
+    
  
 }
