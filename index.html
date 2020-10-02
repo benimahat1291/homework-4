@@ -9,13 +9,14 @@
 </head>
 
 <body>
-    
+    <!-- contains our Quiz-->
     <div class = "container">
-        <h1 id="home">Coding QUIZ!</h1>
-        
+        <!-- where the main text will be displayed-->
+        <h1 id="home">QUIZ!</h1>
+            <p id="directions">Answer questions in 10sec,<br> Lose 3 sec for wrong answer</p>
         <button id="start" >Start Quiz!</button>
+        <!-- elements are hidden until called-->
         <button id="restart" style = "display: none" >Restart</button>
-    
         <div id="score" class = "scoresheet" style="display: none"></div>
         <div id="nameform" style = "display: none">
             <button id="submit">submit results</button>
@@ -24,6 +25,7 @@
         <div id="quiz" style="display: none">
             <div id="question" class="questionbox"></div>
             <div id="choices">
+                <!-- button has class onclick when clicked run checkAnswer with following input-->
                 <button class = "choice" id="A" onclick = "checkAnswer('A')"></button>
                 <button class = "choice" id="B" onclick = "checkAnswer('B')"></button>
                 <button class = "choice" id="C" onclick = "checkAnswer('C')"></button>
