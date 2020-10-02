@@ -65,4 +65,13 @@ functionality:
 
 > Improve timer so that we can chose any start time
 > Make the quesitons generate randomly
-> change color of the button to respond to right and worng answer
+> change color of the button to respond to right and worng answer\
+
+
+
+
+
+## Developer ##
+
+Beni Mahat
+date: 10/1/2020
